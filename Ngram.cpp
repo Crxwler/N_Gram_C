@@ -75,7 +75,9 @@ int Ngram::menuTop(){
         }
         break;
     }
+    return 0;
 }
+
 void Ngram::create(){
 /*
 1. Conforme se estan sacando las palabras, se van agregando a un vector en el formato n-gram, y al sacar el siguiente n-gram se comprueba el vector para

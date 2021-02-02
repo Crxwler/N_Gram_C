@@ -12,7 +12,7 @@ class Ngram{
         void menu();
         int menuTop();
         void printAll();
-
+        void create();
         /*
         Ngram(std::string cadena, std::string cadenaDos);
         Ngram(std::string cadena, std::string cadenaDos, std::string cadenaTres);

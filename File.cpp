@@ -18,7 +18,7 @@ File::File() {
 		std::getline(fin, line);
 
 		std::stringstream s(line);
-		while (std::getline(s, word, 32)) {
+		while (std::getline(s, word, ' ')) {
 			row.push_back(word);
 		}
 		/*for (int i = 0; i < row.size(); ++i){
