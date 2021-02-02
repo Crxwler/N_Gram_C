@@ -14,12 +14,13 @@ Ngram::Ngram(int n, std::string archivo){
 
 void Ngram::menu(){
     int opcion = 0;
-    while(1){
+    while(opcion){
         std::cout << "MENU DE OPCIONES" <<std::endl;
         std::cout << "1.- Bi-gram" << std::endl;
         std::cout << "2.- Tri-gram "<<std::endl;
         std::cout << "3.- N(4)-gram "<<std::endl;
         std::cout << "4.- N(5).gram"<<std::endl;
+        std::cout << "0.- Exit"<<std::endl;
         std::cout << "Elije una opción: "<<std::endl;
         std::cin >> opcion;
 
@@ -38,18 +39,19 @@ void Ngram::menu(){
                 std::cout <<"Opción no existente"<<std::endl;
                 break;
         }
-        break;
+        
     }
 }
 
 int Ngram::menuTop(){
     int opcion = 0;
-    while(1){
+    while(opcion){
         std::cout << "TOP" <<std::endl;
         std::cout << "1.- 10" << std::endl;
         std::cout << "2.- 50 "<<std::endl;
         std::cout << "3.- 100 "<<std::endl;
         std::cout << "4.- 500"<<std::endl;
+        std::cout << "0.- Exit"<<std::endl;
         std::cout << "Elije una opción: "<<std::endl;
         std::cin >> opcion;
 
@@ -74,7 +76,12 @@ int Ngram::menuTop(){
         break;
     }
 }
-
+void Ngram::create(){
+/*
+1. Conforme se estan sacando las palabras, se van agregando a un vector en el formato n-gram, y al sacar el siguiente n-gram se comprueba el vector para
+    no volverlo a generar y si existe se agrega su frecuencia
+ */
+}
 void Ngram::printAll(){
     std::cout << "RESULTADOS" <<std::endl;
     std::cout << "No. \t N-gram \t\t Frequency \t Probability \t Strength "<<std::endl;

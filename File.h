@@ -6,7 +6,7 @@ class File{
 	public:
 		File();
         File(std::string nombreArchivo);
-
+     	
 
 
 /* 1 Mandar como paráemtro un vector de tipo string que va ser como tipo puntero, entonces todas las modif 

@@ -4,11 +4,9 @@
 #include <sstream>
 
 File::File() {
-	// File pointer
 	std::fstream fin;
 
-	// Open an existing file
-	fin.open("reportcard.csv",  std::ios::out| std::ios::app);
+	fin.open("file.txt",  std::ios::in);
 
 	std::vector<std::string> row;
 	std::string line, word, temp;
@@ -20,11 +18,11 @@ File::File() {
 		std::getline(fin, line);
 
 		std::stringstream s(line);
-		while (std::getline(s, word, ' ')) {
+		while (std::getline(s, word, 32)) {
 			row.push_back(word);
 		}
-		for (int i = 0; i < row.size(); ++i){
-			/* code */
-		}
+		/*for (int i = 0; i < row.size(); ++i){
+			/* code *
+		}*/
 	}
 }
