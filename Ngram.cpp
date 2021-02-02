@@ -13,7 +13,7 @@ Ngram::Ngram(int n, std::string archivo){
 }
 
 void Ngram::menu(){
-    int opcion = 0;
+    int opcion = -1;
     while(opcion){
         std::cout << "MENU DE OPCIONES" <<std::endl;
         std::cout << "1.- Bi-gram" << std::endl;
@@ -44,7 +44,7 @@ void Ngram::menu(){
 }
 
 int Ngram::menuTop(){
-    int opcion = 0;
+    int opcion = -1;
     while(opcion){
         std::cout << "TOP" <<std::endl;
         std::cout << "1.- 10" << std::endl;
