@@ -4,31 +4,57 @@
 #include <sstream>
 
 
-File::setNombreArchivo(std::string nombre){
-		
+void File::setNombreArchivo(std::string nombre){
+	File::nombreArchivo = nombre;
+}
+
+std::string File::getNombreArchivo(){
+	return File::nombreArchivo;
 }
 
 
-File::File() {
+File::File(std::vector<std::string> *tokens, std::string nombre) {
 	std::fstream fin;
-
-	fin.open("file.txt",  std::ios::in);
-
+	setNombreArchivo(nombre);
+	if(isFind()){
+		//std::cout <<"Se encontro xd" << std::endl;
+		fin.open(getNombreArchivo(),  std::ios::in);
+	}else{
+		//std::cout <<"no se encontro xd" << std::endl;
+		fin.open("file.txt",  std::ios::in);
+	}
+	
 	std::vector<std::string> row;
 	std::string line, word, temp;
 
-	while (fin >> temp) {
+	while (!fin.eof()) {
 
-		row.clear();
-
+		//row.clear();
+		
 		std::getline(fin, line);
-
+		//std::cout <<"linea: " <<line << std::endl;
 		std::stringstream s(line);
 		while (std::getline(s, word, ' ')) {
 			row.push_back(word);
 		}
-		/*for (int i = 0; i < row.size(); ++i){
-			/* code *
-		}*/
+		*tokens = row;    //Contendrá las palabras que se obtuvieron mediante la separación
+		/*
+		for (int i = 0; i < row.size(); ++i){
+			std::cout<<row[i] << std::endl;
+		}
+		*/
 	}
+}
+
+
+bool File::isFind(){ 	//Verifica si un archivo existe o no
+	std::ifstream fin;
+	fin.open(getNombreArchivo(), std::ios::in);
+	if(fin){
+		return 1;
+	}else{
+		std::cout << "Archivo no existente, tomando el archivo por defecto" << std::endl;
+		return 0;
+	}
+	return 0;
 }

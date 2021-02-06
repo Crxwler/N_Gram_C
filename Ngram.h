@@ -11,6 +11,7 @@ class Ngram{
         
         void menu();
         int menuTop();
+        void menuImportar();//es para seleccionar si usaremos un archivo por default o no
         void printAll();
         void create();
         /*
@@ -29,4 +30,3 @@ class Ngram{
         float strength;
 
 };
-
