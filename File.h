@@ -5,7 +5,11 @@
 class File{
 	public:
 		File();
-        File(std::string nombreArchivo);
+        File(std::string);
+
+        bool isFind(std::string);    //Verifica si el archivo existe o no, sino existe preecarga uno del sistema.
+        void setNombreArchivo(std::string); //Necesario para modificar el nombre
+        std::string getNombreArchivo();             //Necesario para obtener el nombre
      	
 
 
@@ -15,4 +19,6 @@ class File{
     3.-  
 */
 	private:
+
+        std::string nombreArchivo;
 };

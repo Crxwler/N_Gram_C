@@ -3,6 +3,12 @@
 #include <fstream>
 #include <sstream>
 
+
+File::setNombreArchivo(std::string nombre){
+		
+}
+
+
 File::File() {
 	std::fstream fin;
 
