@@ -4,6 +4,5 @@ int main(){
 
     Ngram ngram;
     ngram.menu();
-    ngram.menuTop();
     
 }

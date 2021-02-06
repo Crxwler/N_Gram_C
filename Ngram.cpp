@@ -27,16 +27,19 @@ void Ngram::menu(){
         switch(opcion){
             
             case 1:
-
+                menuTop();
                 break;
             case 2:
+                menuTop();
                 break;
             case 3:
+                menuTop();
                 break;
             case 4:
+                menuTop();
                 break;
             default:
-                std::cout <<"Opción no existente"<<std::endl;
+                std::cout <<"Opcion no existente"<<std::endl;
                 break;
         }
         
@@ -47,27 +50,30 @@ int Ngram::menuTop(){
     int opcion = -1;
     while(opcion){
         std::cout << "TOP" <<std::endl;
-        std::cout << "1.- 10" << std::endl;
-        std::cout << "2.- 50 "<<std::endl;
-        std::cout << "3.- 100 "<<std::endl;
-        std::cout << "4.- 500"<<std::endl;
-        std::cout << "0.- Exit"<<std::endl;
+        std::cout << "1.- 5" << std::endl;
+        std::cout << "2.- 10 "<<std::endl;
+        std::cout << "3.- 15 "<<std::endl;
+        std::cout << "4.- 20"<<std::endl;
+        std::cout << "0.- 50"<<std::endl;
         std::cout << "Elije una opción: "<<std::endl;
         std::cin >> opcion;
 
         switch(opcion){
             
             case 1:
-                return 10;
+                return 5;
                 break;
             case 2:
-                return 50;
+                return 10;
                 break;
             case 3:
-                return 100;
+                return 15;
                 break;
             case 4:
-                return 500;
+                return 20;
+                break;
+            case 5:
+                return 50;
                 break;
             default:
                 std::cout <<"Opción no existente"<<std::endl;
