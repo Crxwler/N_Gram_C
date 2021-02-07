@@ -14,16 +14,17 @@ Ngram::Ngram(int n, std::string archivo){
 }
 
 void Ngram::menuImportar(){ //Agregado este menu necesario debido a que me generaba problemas el constructor con los names
-    int opcion = -1;
+    int opcion = 1;
+    int salir = salir;
     std::string nombre = "";
     std::vector<std::string> vectorPalabras;    //Ejemplo de uso del vetor
-    
     std::cout << "MENU DE OPCIONES" <<std::endl;
     std::cout << "1.- Importar archivo" << std::endl;
     std::cout << "2.- Utilizar archivo de sistema "<<std::endl;
-    std::cout << "0.- Exit"<<std::endl;
+    std::cout << "3.- Salir"<<std::endl;
     std::cout << "Elije una opción: "<<std::endl;
     std::cin >> opcion;
+
 
     switch(opcion){
         case 1:
@@ -36,8 +37,24 @@ void Ngram::menuImportar(){ //Agregado este menu necesario debido a que me gener
         case 2:
             nombre = "file.txt";
             break;
+        case 3:
+            std::cout <<"Seguro que quieres salir...?"<<std::endl;
+            std::cout <<"1. SI"<<std::endl;
+            std::cout <<"2. NO"<<std::endl;
+            std::cin >> salir;
+            if (salir==1)
+            {
+                exit(EXIT_FAILURE);
+                break;
+            }
+            else
+            {
+                return menuImportar();
+                break;
+            }
         default:
-            std::cout <<"Opcion no existente"<<std::endl;
+            std::cout <<"Opcion no existente, porfavor ingresa una opcion valida"<<std::endl;
+            return menuImportar();
             break;
     }
         File fis(&vectorPalabras, nombre);           //Instancia del objeto File, el cual le mando el punteros
@@ -49,16 +66,15 @@ void Ngram::menuImportar(){ //Agregado este menu necesario debido a que me gener
     
 }
 
-
 void Ngram::menu(){
-    int opcion = -1;
+    int opcion = 1;
     while(opcion){
         std::cout << "MENU DE OPCIONES" <<std::endl;
         std::cout << "1.- Bi-gram" << std::endl;
         std::cout << "2.- Tri-gram "<<std::endl;
         std::cout << "3.- N(4)-gram "<<std::endl;
         std::cout << "4.- N(5).gram"<<std::endl;
-        std::cout << "0.- Exit"<<std::endl;
+        std::cout << "5.- Exit"<<std::endl;
         std::cout << "Elije una opción: "<<std::endl;
         std::cin >> opcion;
 
@@ -76,8 +92,12 @@ void Ngram::menu(){
             case 4:
                 menuTop();
                 break;
+            case 5:
+                menuImportar();
+                break;
             default:
-                std::cout <<"Opcion no existente"<<std::endl;
+                std::cout <<"Opcion no existente, porfavor ingresa una opcion valida"<<std::endl;
+                return menu();
                 break;
         }
         
@@ -93,7 +113,7 @@ int Ngram::menuTop(){
         std::cout << "2.- 10 "<<std::endl;
         std::cout << "3.- 15 "<<std::endl;
         std::cout << "4.- 20"<<std::endl;
-        std::cout << "0.- 50"<<std::endl;
+        std::cout << "5.- 50"<<std::endl;
         std::cout << "Elije una opción: "<<std::endl;
         std::cin >> opcion;
 
@@ -115,12 +135,17 @@ int Ngram::menuTop(){
                 return 50;
                 break;
             default:
-                std::cout <<"Opción no existente"<<std::endl;
+                std::cout <<"Opcion no existente, porfavor ingresa una opcion valida"<<std::endl;
                 return 0;
         }
         break;
     }
     return 0;
+}
+void SalirPrograma(int num)
+{
+    if (num < 0)
+        exit(EXIT_FAILURE);
 }
 
 void Ngram::create(){
@@ -134,4 +159,3 @@ void Ngram::printAll(){
     std::cout << "No. \t N-gram \t\t Frequency \t Probability \t Strength "<<std::endl;
 
 }
-
