@@ -38,11 +38,6 @@ File::File(std::vector<std::string> *tokens, std::string nombre) {
 			row.push_back(word);
 		}
 		*tokens = row;    //Contendrá las palabras que se obtuvieron mediante la separación
-		/*
-		for (int i = 0; i < row.size(); ++i){
-			std::cout<<row[i] << std::endl;
-		}
-		*/
 	}
 }
 

@@ -24,8 +24,6 @@ void Ngram::menuImportar(){ //Agregado este menu necesario debido a que me gener
     std::cout << "3.- Salir"<<std::endl;
     std::cout << "Elije una opción: "<<std::endl;
     std::cin >> opcion;
-
-
     switch(opcion){
         case 1:
             //Todo esto es un ejemplo de como se llamaría para obtener dicho vector con puntero
@@ -42,13 +40,11 @@ void Ngram::menuImportar(){ //Agregado este menu necesario debido a que me gener
             std::cout <<"1. SI"<<std::endl;
             std::cout <<"2. NO"<<std::endl;
             std::cin >> salir;
-            if (salir==1)
-            {
+            if (salir==1){
                 exit(EXIT_FAILURE);
                 break;
             }
-            else
-            {
+            else{
                 return menuImportar();
                 break;
             }
@@ -57,7 +53,7 @@ void Ngram::menuImportar(){ //Agregado este menu necesario debido a que me gener
             return menuImportar();
             break;
     }
-        File fis(&vectorPalabras, nombre);           //Instancia del objeto File, el cual le mando el punteros
+    File fis(&vectorPalabras, nombre);           //Instancia del objeto File, el cual le mando el punteros
     std::cout << "Find? " << fis.isFind() << std::endl;
     for (int i = 0; i < vectorPalabras.size(); ++i){
         std::cout<<vectorPalabras[i] << std::endl;
@@ -79,7 +75,6 @@ void Ngram::menu(){
         std::cin >> opcion;
 
         switch(opcion){
-            
             case 1:
                 menuTop();
                 break;
@@ -116,9 +111,7 @@ int Ngram::menuTop(){
         std::cout << "5.- 50"<<std::endl;
         std::cout << "Elije una opción: "<<std::endl;
         std::cin >> opcion;
-
         switch(opcion){
-            
             case 1:
                 return 5;
                 break;
@@ -142,8 +135,7 @@ int Ngram::menuTop(){
     }
     return 0;
 }
-void SalirPrograma(int num)
-{
+void SalirPrograma(int num){
     if (num < 0)
         exit(EXIT_FAILURE);
 }
@@ -157,5 +149,4 @@ void Ngram::create(){
 void Ngram::printAll(){
     std::cout << "RESULTADOS" <<std::endl;
     std::cout << "No. \t N-gram \t\t Frequency \t Probability \t Strength "<<std::endl;
-
 }
