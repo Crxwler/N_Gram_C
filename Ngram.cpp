@@ -19,7 +19,7 @@ void Ngram::menuImportar(){ //Agregado este menu necesario debido a que me gener
     std::cout << "1.- Importar archivo" << std::endl;
     std::cout << "2.- Utilizar archivo de sistema "<<std::endl;
     std::cout << "3.- Salir"<<std::endl;
-    std::cout << "Elije una opción: "<<std::endl;
+    std::cout << "Elije una opcion: "<<std::endl;
     std::cin >> opcion;
     switch(opcion){
         case 1:
@@ -50,13 +50,9 @@ void Ngram::menuImportar(){ //Agregado este menu necesario debido a que me gener
             return menuImportar();
             break;
     }
-    File fis(&word, nombre);           //Instancia del objeto File, el cual le mando el punteros
-    /*std::cout << "Find? " << fis.isFind() << std::endl;
-    for (int i = 0; i < word.size(); ++i){
-        std::cout<<word[i] << std::endl;
-    } */   
-    menu();
-    
+    word.clear();
+    File fis(&word, nombre);//Instancia del objeto File, el cual le mando el punteros 
+    menu();   
 }
 
 void Ngram::menu(){
@@ -69,7 +65,7 @@ void Ngram::menu(){
         std::cout << "3.- N(4)-gram "<<std::endl;
         std::cout << "4.- N(5).gram"<<std::endl;
         std::cout << "5.- Exit"<<std::endl;
-        std::cout << "Elije una opción: "<<std::endl;
+        std::cout << "Elije una opcion: "<<std::endl;
         std::cin >> opcion;
 
         switch(opcion){
@@ -163,6 +159,7 @@ int Ngram::getTotal(){
 }
 
 void Ngram::biGram(){
+    gram.clear();
     std::string str="";
     for (int i = 0; i < word.size()-1; ++i){
         str = word[i] + " "+ word[i+1];
@@ -173,6 +170,7 @@ void Ngram::biGram(){
     }
 }
 void Ngram::triGram(){
+    gram.clear();
     std::string str="";
     for (int i = 0; i < word.size()-2; ++i){
         str = word[i] + " "+ word[i+1] + " "+ word[i+2];
@@ -183,6 +181,7 @@ void Ngram::triGram(){
     }
 }
 void Ngram::cuatriGram(){
+    gram.clear();
     std::string str="";
     for (int i = 0; i < word.size()-3; ++i){
         str = word[i] + " "+ word[i+1] + " "+ word[i+2] + " "+ word[i+3];
@@ -193,6 +192,7 @@ void Ngram::cuatriGram(){
     }
 }
 void Ngram::pentaGram(){
+    gram.clear();
     std::string str="";
     for (int i = 0; i < word.size()-4; ++i){
         str = word[i] + " "+ word[i+1] + " "+ word[i+2] + " "+ word[i+3] + " "+ word[i+4];
