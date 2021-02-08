@@ -27,6 +27,6 @@ Manejo del menu, para el n-gram, top 10-15-20 etc que se ocupará
 
 Manejo del texto  para hacer los n - grams 
 
-##Anotaciones 
+## Anotaciones 
 
 1. Conforme se estan generando los n-grams se estan guardando en un vector, y al sacar el siguiente n-gram se comprueba el vector para no volverlo a generar y si existe se agrega a su frecuencia
