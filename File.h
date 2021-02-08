@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
+
 class File{
 	public:
 		File(std::vector<std::string>*, std::string nombreArchivo);   //Csontructor por defecto que recibe el puntero como tal

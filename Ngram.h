@@ -5,23 +5,26 @@
 
 class Ngram{
     public:
-
         Ngram();
-        Ngram(int n, std::string archivo);
-        
+        Ngram(std::string archivo);
         void menu();
         int menuTop();
         void menuImportar();
         void printAll();
-        void create();
+        void biGram();
+        void triGram();
+        void cuatriGram();
+        void pentaGram();
+        bool find(std::string bus);
+        int getTotal();
+        void sortAll();
+        void printAll(int n);
 
     private:
-
         std::string archivo;
-        int n;
+        std::vector<std::string> word;
         std::vector<std::string> gram;
         std::vector<int> frequency;
         float probability;
         float strength;
-
 };

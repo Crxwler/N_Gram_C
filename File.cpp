@@ -2,7 +2,7 @@
 #include "File.h"
 #include <fstream>
 #include <sstream>
-
+#include <algorithm>
 
 void File::setNombreArchivo(std::string nombre){
 	File::nombreArchivo = nombre;
@@ -35,6 +35,7 @@ File::File(std::vector<std::string> *tokens, std::string nombre) {
 		//std::cout <<"linea: " <<line << std::endl;
 		std::stringstream s(line);
 		while (std::getline(s, word, ' ')) {
+			transform(word.begin(), word.end(), word.begin(), ::tolower);
 			row.push_back(word);
 		}
 		*tokens = row;    //Contendrá las palabras que se obtuvieron mediante la separación
