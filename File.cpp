@@ -23,14 +23,9 @@ File::File(std::vector<std::string> *tokens, std::string nombre) {
 		//std::cout <<"no se encontro xd" << std::endl;
 		fin.open("file.txt",  std::ios::in);
 	}
-	
 	std::vector<std::string> row;
 	std::string line, word, temp;
-
 	while (!fin.eof()) {
-
-		//row.clear();
-		
 		std::getline(fin, line);
 		//std::cout <<"linea: " <<line << std::endl;
 		std::stringstream s(line);

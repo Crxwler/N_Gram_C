@@ -1,7 +1,8 @@
 #include <math.h> 
 #include "Ngram.h"
 #include "File.h"
-
+#include <iostream>
+#include <algorithm>
 Ngram::Ngram(){
     archivo = "";
 }
@@ -141,12 +142,14 @@ void Ngram::printAll(int n){
     std::cout << "RESULTADOS" <<std::endl;
     std::cout << "No.  N-gram \t\t Frequency \t Probability \t Strength "<<std::endl;
     sortAll();
-    int total = getTotal();
+    //int total = getTotal();
+    getProbability();
     n = n > gram.size() ? gram.size() : n;
     for (int i = 0; i < n; ++i){
-        probability = frequency[i] / total;
-        strength = log(frequency[i]) * probability; 
-        std::cout << (i+1) <<" "<< gram[i]<< "\t\t\t" << frequency[i]<<"\t" <<probability <<"\t" << strength<< std::endl; 
+        //probability = frequency[i] / total;
+        strength = log(frequency[i]) * probability[i]; 
+    
+        std::cout << (i+1) <<" "<< gram[i]<< "\t\t\t" << frequency[i]<<"\t" <<probability[i] <<"\t" << strength<< std::endl; 
     }
 }
 
@@ -235,4 +238,37 @@ void Ngram::sortAll(){
         if (flag == false) 
             break; 
    } 
+}
+void Ngram::countWords(){
+    wordClear.clear();
+    frequencyWord.clear();
+    std::copy(word.begin(), word.end() ,std::back_inserter(wordClear) );//Copiamos el vector
+    wordClear.erase( unique( wordClear.begin(), wordClear.end() ), wordClear.end() );//eliminar duplicados
+    frequencyWord.resize(wordClear.size(),0);
+    for (int i = 0; i < wordClear.size(); ++i){
+        for (int j = 0; j < word.size(); ++j){
+            if(wordClear[i] == word[j]){
+                frequencyWord[i] +=1;
+            }
+        }
+    }  
+}
+void Ngram::getProbability(){
+    probability.clear();
+    probability.resize(gram.size(),1);
+    std::string bus="";
+    for (int i = 0; i < gram.size(); ++i){
+        bus = "";
+        for (int k = 0; k < gram[i].size(); ++k){
+            if(gram[i][k] == ' ')
+                break;
+            else
+                bus += gram[i][k];
+        }
+        for (int j = 0; j < wordClear.size(); ++j){
+            if ( bus == wordClear[j]){
+                probability[i] = frequency[i] / frequencyWord[j];
+            }
+        }
+    }
 }
