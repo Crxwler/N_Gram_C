@@ -139,16 +139,16 @@ int Ngram::menuTop(){
 
 
 void Ngram::printAll(int n){
-    std::cout << "RESULTADOS" <<std::endl;
-    std::cout << "No.  N-gram \t\t Frequency \t Probability \t Strength "<<std::endl;
     sortAll();
     //int total = getTotal();
+    countWords();
     getProbability();
+    std::cout << "RESULTADOS" <<std::endl;
+    std::cout << "No.  N-gram \t\t Frequency \t Probability \t Strength "<<std::endl;
     n = n > gram.size() ? gram.size() : n;
     for (int i = 0; i < n; ++i){
         //probability = frequency[i] / total;
         strength = log(frequency[i]) * probability[i]; 
-    
         std::cout << (i+1) <<" "<< gram[i]<< "\t\t\t" << frequency[i]<<"\t" <<probability[i] <<"\t" << strength<< std::endl; 
     }
 }
@@ -247,7 +247,7 @@ void Ngram::countWords(){
     wordClear.clear();
     frequencyWord.clear();
     std::copy(word.begin(), word.end() ,std::back_inserter(wordClear) );//Copiamos el vector
-    wordClear.erase( unique( wordClear.begin(), wordClear.end() ), wordClear.end() );//eliminar duplicados
+    wordClear.erase( std::unique( wordClear.begin(), wordClear.end() ), wordClear.end() );//eliminar duplicados
     frequencyWord.resize(wordClear.size(),0);
     for (int i = 0; i < wordClear.size(); ++i){
         for (int j = 0; j < word.size(); ++j){
