@@ -163,6 +163,7 @@ int Ngram::getTotal(){
 
 void Ngram::biGram(){
     gram.clear();
+    frequency.clear();
     std::string str="";
     for (int i = 0; i < word.size()-1; ++i){
         str = word[i] + " "+ word[i+1];
@@ -174,6 +175,7 @@ void Ngram::biGram(){
 }
 void Ngram::triGram(){
     gram.clear();
+    frequency.clear();
     std::string str="";
     for (int i = 0; i < word.size()-2; ++i){
         str = word[i] + " "+ word[i+1] + " "+ word[i+2];
@@ -185,6 +187,7 @@ void Ngram::triGram(){
 }
 void Ngram::cuatriGram(){
     gram.clear();
+    frequency.clear();
     std::string str="";
     for (int i = 0; i < word.size()-3; ++i){
         str = word[i] + " "+ word[i+1] + " "+ word[i+2] + " "+ word[i+3];
@@ -196,6 +199,7 @@ void Ngram::cuatriGram(){
 }
 void Ngram::pentaGram(){
     gram.clear();
+    frequency.clear();
     std::string str="";
     for (int i = 0; i < word.size()-4; ++i){
         str = word[i] + " "+ word[i+1] + " "+ word[i+2] + " "+ word[i+3] + " "+ word[i+4];
